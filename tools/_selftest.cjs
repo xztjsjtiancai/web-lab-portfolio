@@ -219,8 +219,14 @@ viewer.fire('click', { clientX: 500, clientY: 500 });
 check('点击遮罩关闭弹窗', viewer.open === false);
 
 console.log('\n[7] 封面链接化');
+// 从源码里解析出 LINKS，避免把地址写死在测试里。
+const linksBlock = src.match(/var LINKS = \{[\s\S]*?\n\};/);
+const LINKS = {};
+if (linksBlock) {
+  for (const m of linksBlock[0].matchAll(/(\w+):\s*'([^']*)'/g)) LINKS[m[1]] = m[2];
+}
 check('封面已替换为 <a> 链接', openTargets[0].replacedBy && openTargets[0].replacedBy.className.split(/\s+/).includes('shot'));
-check('链接指向配置的地址', openTargets[0].replacedBy.href === 'https://caipu-ten.vercel.app/');
+check('链接指向 LINKS 里配置的地址', openTargets[0].replacedBy.href === LINKS.recipe);
 check('链接带 noopener noreferrer', openTargets[0].replacedBy.rel === 'noopener noreferrer');
 check('链接在新标签页打开', openTargets[0].replacedBy.target === '_blank');
 check('链接保留 aria-label', /在新标签页打开/.test(openTargets[0].replacedBy.getAttribute('aria-label') || ''));
@@ -229,9 +235,11 @@ check('封面内的图片已迁移进链接', openTargets[0].replacedBy.children
 check('标题按钮未被改成链接', !openTargets[1].replacedBy);
 
 console.log('\n[8] 源码级检查');
-check('三个作品都配置了地址', ['recipe', 'quiz', 'register'].every(k => new RegExp(k + ":\\s*'https").test(src)));
+check('三件作品都配了 https 地址', ['recipe', 'quiz', 'register'].every(k => /^https:\/\/.+/.test(LINKS[k] || '')));
+check('三个地址互不相同', new Set(Object.values(LINKS)).size === 3);
+check('地址都是合法 URL', Object.values(LINKS).every(u => { try { new URL(u); return true; } catch { return false; } }));
+check('没有旧域名残留', !/caipu-ten|quiz-game-one-phi|my-web-project10/.test(src));
 check('未使用 eval', !/eval\(/.test(src));
-check('未引入外部依赖', !/https?:\/\/(?!caipu|quiz-game-one-phi|my-web-project10)/.test(src.replace(/https?:\/\/[^'"]+/g, m => m)) || true);
 
 console.log('\n结果：' + pass + ' 通过 / ' + fail + ' 失败\n');
 process.exit(fail ? 1 : 0);

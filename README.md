@@ -57,9 +57,9 @@ python -m http.server 5173
 
 ```js
 var LINKS = {
-  recipe: 'https://caipu-ten.vercel.app/',
-  quiz: 'https://quiz-game-one-phi.vercel.app/',
-  register: 'https://my-web-project10.vercel.app/'
+  recipe: 'https://xztweb2412190321.vercel.app/',   // Recipe Finder 菜谱搜索
+  quiz: 'https://web2-1-umber.vercel.app/',         // Quiz Game 问答游戏
+  register: 'https://web2-2-zeta.vercel.app/'       // Register 注册表单
 };
 ```
 

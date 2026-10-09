@@ -9,9 +9,9 @@
    留空或地址无效时，点击改为弹出截图预览。
    -------------------------------------------------------------------------- */
 var LINKS = {
-  recipe: 'https://caipu-ten.vercel.app/',
-  quiz: 'https://quiz-game-one-phi.vercel.app/',
-  register: 'https://my-web-project10.vercel.app/'
+  recipe: 'https://xztweb2412190321.vercel.app/',
+  quiz: 'https://web2-1-umber.vercel.app/',
+  register: 'https://web2-2-zeta.vercel.app/'
 };
 
 /* 截图预览信息 */
