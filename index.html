@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="xzt 的前端实验室：收录菜谱检索、问答互动与表单设计三件网页作品。">
+<meta name="theme-color" content="#0d1117">
+<meta name="color-scheme" content="dark">
+<title>xzt / WEB LAB — 前端作品集</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="app">
+  <aside class="rail">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">◧</span>
+      <span class="brand-text">
+        <strong>xzt</strong>
+        <em>WEB&nbsp;LAB</em>
+      </span>
+    </a>
+
+    <nav class="rail-nav" aria-label="页面导航">
+      <a href="#work" class="rail-link is-current"><span class="rail-idx">01</span><span>作品</span></a>
+      <a href="#about" class="rail-link"><span class="rail-idx">02</span><span>关于</span></a>
+      <a href="#contact" class="rail-link"><span class="rail-idx">03</span><span>联系</span></a>
+    </nav>
+
+    <p class="rail-meta">
+      <span class="pulse" aria-hidden="true"></span>
+      3 件作品已上线
+    </p>
+    <p class="rail-note">HTML · CSS · JavaScript<br>纯静态，无构建步骤</p>
+  </aside>
+
+  <main id="main" class="stage">
+    <header id="top" class="intro">
+      <p class="tag">FRONT-END LAB / 2026</p>
+      <h1>把界面当成<br><span class="grad">可以动手的实验。</span></h1>
+      <p class="lede">
+        我是 xzt。这三件作品都从零手写，只用 HTML、CSS 和原生 JavaScript，
+        没有框架、没有构建工具——想弄清楚每一行代码到底做了什么。
+      </p>
+      <dl class="stats">
+        <div><dt>作品</dt><dd>03</dd></div>
+        <div><dt>技术栈</dt><dd>HTML5 / CSS3 / ES6</dd></div>
+        <div><dt>外部依赖</dt><dd>0</dd></div>
+      </dl>
+    </header>
+
+    <section id="work" class="work" aria-labelledby="work-heading">
+      <div class="work-head">
+        <h2 id="work-heading">作品清单</h2>
+        <p class="work-hint">共 3 项 · 点击卡片查看预览</p>
+      </div>
+
+      <div class="controls">
+        <div class="chips" role="group" aria-label="按类型筛选">
+          <button type="button" class="chip is-on" data-filter="all" aria-pressed="true">全部<span class="chip-n">3</span></button>
+          <button type="button" class="chip" data-filter="app" aria-pressed="false">应用<span class="chip-n">1</span></button>
+          <button type="button" class="chip" data-filter="interaction" aria-pressed="false">交互<span class="chip-n">1</span></button>
+          <button type="button" class="chip" data-filter="form" aria-pressed="false">表单<span class="chip-n">1</span></button>
+        </div>
+
+        <div class="controls-right">
+          <label class="field" for="q">
+            <span class="field-icon" aria-hidden="true">⌕</span>
+            <input id="q" type="search" placeholder="搜索标题或标签…" autocomplete="off">
+          </label>
+          <label class="select" for="sort">
+            <span class="sr-only">排序方式</span>
+            <select id="sort">
+              <option value="default">默认顺序</option>
+              <option value="az">名称 A → Z</option>
+              <option value="za">名称 Z → A</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <ul class="cards">
+        <li class="card" data-cat="app" data-key="recipe finder 菜谱搜索 the mealdb api 应用">
+          <button type="button" class="shot" data-open="recipe" aria-label="预览 Recipe Finder 页面">
+            <img src="image/caipu.png" alt="Recipe Finder 页面：珊瑚色标题、菜谱搜索框与 Search 按钮" width="1177" height="841" loading="lazy">
+            <span class="shot-veil" aria-hidden="true">查看预览</span>
+          </button>
+          <div class="card-body">
+            <p class="card-idx">01 / 应用</p>
+            <div class="card-head">
+              <h3><button type="button" class="card-title" data-open="recipe">Recipe Finder</button></h3>
+              <button type="button" class="peek" data-open="recipe" aria-label="预览 Recipe Finder 截图">预览</button>
+            </div>
+            <ul class="tags"><li>TheMealDB</li><li>fetch API</li><li>响应式</li></ul>
+            <p class="card-text">输入关键词，从世界各地的料理里挑出下一餐。</p>
+          </div>
+        </li>
+
+        <li class="card" data-cat="interaction" data-key="quiz game 趣味问答 交互 interaction javascript 游戏">
+          <button type="button" class="shot" data-open="quiz" aria-label="预览 Quiz Game 页面">
+            <img src="image/quiz-game.png" alt="Quiz Game 页面：Quiz Time 标题与 Start Quiz 按钮" width="943" height="839" loading="lazy">
+            <span class="shot-veil" aria-hidden="true">查看预览</span>
+          </button>
+          <div class="card-body">
+            <p class="card-idx">02 / 交互</p>
+            <div class="card-head">
+              <h3><button type="button" class="card-title" data-open="quiz">Quiz Game</button></h3>
+              <button type="button" class="peek" data-open="quiz" aria-label="预览 Quiz Game 截图">预览</button>
+            </div>
+            <ul class="tags"><li>状态管理</li><li>计分逻辑</li><li>事件驱动</li></ul>
+            <p class="card-text">把题目、选项和计分拆成三层，答题过程一目了然。</p>
+          </div>
+        </li>
+
+        <li class="card" data-cat="form" data-key="register 注册表单 表单 form ui design 校验">
+          <button type="button" class="shot" data-open="register" aria-label="预览 Register 页面">
+            <img src="image/register.png" alt="Register 页面：用户名、邮箱、密码与确认密码四个输入框" width="942" height="1260" loading="lazy">
+            <span class="shot-veil" aria-hidden="true">查看预览</span>
+          </button>
+          <div class="card-body">
+            <p class="card-idx">03 / 表单</p>
+            <div class="card-head">
+              <h3><button type="button" class="card-title" data-open="register">Register</button></h3>
+              <button type="button" class="peek" data-open="register" aria-label="预览 Register 截图">预览</button>
+            </div>
+            <ul class="tags"><li>表单结构</li><li>输入状态</li><li>可访问性</li></ul>
+            <p class="card-text">四个字段，配上清晰的标签与提示，让填写不再犹豫。</p>
+          </div>
+        </li>
+      </ul>
+
+      <p id="empty" class="empty" hidden role="status">没有匹配的作品，换个关键词或切回「全部」试试。</p>
+
+      <p id="count" class="count" role="status" aria-live="polite">正在显示 3 / 3 件作品</p>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">关于这份作品集</h2>
+      <div class="about-grid">
+        <p>三件作品分别练了三件事：调用外部数据、管理交互状态、把表单做清楚。每一件都部署成了可以直接访问的网页。</p>
+        <ul class="about-list">
+          <li>语义化标签与合理的标题层级</li>
+          <li>只用 CSS 变量统一配色与间距</li>
+          <li>键盘可达、焦点可见、尊重减少动效偏好</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer id="contact" class="foot">
+      <p>© 2026 xzt · 前端实验室</p>
+      <p class="foot-links">
+        <a href="#top">返回顶部 ↑</a>
+      </p>
+    </footer>
+  </main>
+</div>
+
+<dialog id="viewer" aria-labelledby="viewer-title">
+  <div class="viewer-head">
+    <div>
+      <p class="tag">PREVIEW</p>
+      <h2 id="viewer-title"></h2>
+    </div>
+    <button id="viewer-close" type="button" aria-label="关闭预览">✕</button>
+  </div>
+  <p class="viewer-note">该项目暂以页面截图展示，完整页面在本地运行。</p>
+  <img id="viewer-img" alt="">
+  <form method="dialog" class="viewer-actions">
+    <button class="btn">关闭</button>
+  </form>
+</dialog>
+</body>
+</html>

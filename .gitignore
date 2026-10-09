@@ -1,0 +1,15 @@
+# 编辑器
+.vscode/
+.idea/
+
+# 依赖与构建产物（本项目其实不需要，留着以防误装）
+node_modules/
+dist/
+
+# 本地预览截图
+_preview/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
